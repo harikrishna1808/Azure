@@ -1,0 +1,17 @@
+{
+	"name": "srcSQL",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "krg21server.database.windows.net",
+			"database": "k21rgdemodb",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "sqladmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDgzRDQ3REI0LTZGMTItNDhEQS1BRUY0LTdBMDMwRjVGOUE0MF8xMGQ0NzJjNi0zNWNiLTQ3NzQtYTNhMy00MjViYWRmOGE1MWEiDQp9"
+		}
+	}
+}
