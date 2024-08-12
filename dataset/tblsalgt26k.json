@@ -1,0 +1,16 @@
+{
+	"name": "tblsalgt26k",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "destSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "newempgt26k"
+		}
+	}
+}
