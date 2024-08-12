@@ -15,10 +15,10 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "srcDS",
+						"referenceName": "destinationSQLDB",
 						"type": "DatasetReference"
 					},
-					"name": "destinationSQL"
+					"name": "destSQL"
 				}
 			],
 			"transformations": [
@@ -47,7 +47,8 @@
 				"          EMP_LAST_NM as string,",
 				"          EMP_EMAIL_ID as string,",
 				"          EMP_PHONE_NR as long,",
-				"          EMP_SAL as integer",
+				"          EMP_SAL as integer,",
+				"          INCREMENTED_SALARY as integer",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -63,8 +64,9 @@
 				"          EMP_LAST_NM,",
 				"          EMP_EMAIL_ID,",
 				"          EMP_PHONE_NR,",
-				"          EMP_SAL",
-				"     )) ~> destinationSQL"
+				"          EMP_SAL,",
+				"          INCREMENTED_SALARY = increment",
+				"     )) ~> destSQL"
 			]
 		}
 	}
