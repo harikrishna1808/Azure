@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "dbo.employee.csv",
 				"container": "k21container"
 			},
 			"columnDelimiter": ",",

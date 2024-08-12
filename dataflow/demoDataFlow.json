@@ -1,0 +1,24 @@
+{
+	"name": "demoDataFlow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "destBLOB",
+						"type": "DatasetReference"
+					},
+					"name": "srcBlob"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> srcBlob"
+			]
+		}
+	}
+}
