@@ -58,6 +58,7 @@
 				"     insertable:true,",
 				"     updateable:false,",
 				"     upsertable:false,",
+				"     truncate:true,",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
@@ -76,10 +77,19 @@
 				"     insertable:true,",
 				"     updateable:false,",
 				"     upsertable:false,",
+				"     truncate:true,",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> tablsallt26k"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          EMP_ID,",
+				"          EMP_FIRST_NM,",
+				"          EMP_LAST_NM,",
+				"          EMP_EMAIL_ID,",
+				"          EMP_PHONE_NR,",
+				"          EMP_SAL",
+				"     )) ~> tablsallt26k"
 			]
 		}
 	}
