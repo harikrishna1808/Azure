@@ -2,7 +2,7 @@
 	"name": "srcDS",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "srcSQL",
+			"referenceName": "destSQLDB",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
