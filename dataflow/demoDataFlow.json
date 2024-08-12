@@ -49,7 +49,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> srcBlob",
 				"srcBlob derive(increment = EMP_SAL + 10000) ~> addIncrementColumn",
-				"addIncrementColumn split(EMP_SAL > 26000,",
+				"addIncrementColumn split(EMP_SAL >= 26000,",
 				"     EMP_SAL < 26000,",
 				"     disjoint: true) ~> split1@(salarygt26ksplit, salarylt26ksplit)",
 				"split1@salarygt26ksplit sink(allowSchemaDrift: true,",
