@@ -12,20 +12,59 @@
 					"name": "srcBlob"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "srcDS",
+						"type": "DatasetReference"
+					},
+					"name": "destinationSQL"
+				}
+			],
+			"transformations": [
+				{
+					"name": "addIncrementColumn"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          EMP_ID as integer,",
 				"          EMP_FIRST_NM as string,",
 				"          EMP_LAST_NM as string,",
 				"          EMP_EMAIL_ID as string,",
-				"          EMP_PHONE_NR as integer,",
+				"          EMP_PHONE_NR as long,",
 				"          EMP_SAL as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> srcBlob"
+				"     ignoreNoFilesFound: false) ~> srcBlob",
+				"srcBlob derive(increment = EMP_SAL + 10000) ~> addIncrementColumn",
+				"addIncrementColumn sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          EMP_ID as integer,",
+				"          EMP_FIRST_NM as string,",
+				"          EMP_LAST_NM as string,",
+				"          EMP_EMAIL_ID as string,",
+				"          EMP_PHONE_NR as long,",
+				"          EMP_SAL as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          EMP_ID,",
+				"          EMP_FIRST_NM,",
+				"          EMP_LAST_NM,",
+				"          EMP_EMAIL_ID,",
+				"          EMP_PHONE_NR,",
+				"          EMP_SAL",
+				"     )) ~> destinationSQL"
 			]
 		}
 	}
