@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "destBLOB",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
 					"name": "srcBlob"
@@ -15,7 +15,15 @@
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          EMP_ID as integer,",
+				"          EMP_FIRST_NM as string,",
+				"          EMP_LAST_NM as string,",
+				"          EMP_EMAIL_ID as string,",
+				"          EMP_PHONE_NR as integer,",
+				"          EMP_SAL as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> srcBlob"
 			]
