@@ -1,0 +1,42 @@
+{
+	"name": "StorePrcdeletion",
+	"properties": {
+		"activities": [
+			{
+				"name": "StorePrcdeletion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[storeprocTable]",
+					"storedProcedureParameters": {
+						"EMP_SAL": {
+							"value": {
+								"value": "@pipeline().parameters.EMP_SAL",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "destSQLDB",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"EMP_SAL": {
+				"type": "int"
+			}
+		},
+		"annotations": []
+	}
+}
